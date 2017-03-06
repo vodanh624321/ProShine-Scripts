@@ -65,6 +65,22 @@ function onLearningMove()
 	    return forgetMove("Peck")
 	end
 
+	if hasMove(1, "Teleport") then
+	    return forgetMove("Teleport")
+	end
+
+	if hasMove(1, "Seismic Toss") then
+	    return forgetMove("Seismic Toss")
+	end
+
+	if hasMove(1, "Disable") then
+	    return forgetMove("Disable")
+	end
+
+	if hasMove(1, "Miracle Eye") then
+	    return forgetMove("Miracle Eye")
+	end
+
 	if hasMove(1, "Chip Away") then
 	    return forgetMove("Chip Away")
 	end

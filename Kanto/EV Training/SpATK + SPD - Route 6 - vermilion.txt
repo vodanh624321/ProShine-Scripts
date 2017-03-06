@@ -1,11 +1,10 @@
 
-name = "SpAttack EV: Route 6, Water (near Vermilion)"
+name = "SpAttack EV: Route 6, Land (near Vermilion)"
 author = "Dung Le"
 description = [[This script will train the first pokémon of your team.
-It will only attack pokémon giving special attack EV.
+It will only attack pokémon giving special attack + speed EV.
 It will also try to capture shinies by throwing pokéballs.
-Start anywhere between Vermilion City and Route 6.
-You need a pokémon with surf.]]
+Start anywhere between Vermilion City and Route 6.]]
 
 function onPathAction()
 	if isPokemonUsable(1) then
@@ -14,7 +13,7 @@ function onPathAction()
 		elseif getMapName() == "Vermilion City" then
 			moveToMap("Route 6")
 		elseif getMapName() == "Route 6" then
-			moveToRectangle(15, 35, 30, 41)
+			moveToRectangle(25, 48, 27, 52)
 		end
 	else
 		if getMapName() == "Route 6" then
@@ -28,18 +27,19 @@ function onPathAction()
 end
 
 function onBattleAction()
-	if isWildBattle() and isOpponentShiny() then
+	if isWildBattle() and isOpponentShiny() or getOpponentName() == "Abra" then
 		if useItem("Ultra Ball") or useItem("Great Ball") or useItem("Pokeball") then
 			return
 		end
 	end
 	if getActivePokemonNumber() == 1 and isOpponentEffortValue("SpAttack") then
 		return attack() or run() or sendUsablePokemon() or sendAnyPokemon()
+	elseif getActivePokemonNumber() == 1 and isOpponentEffortValue("Speed") then
+		return attack() or run() or sendUsablePokemon() or sendAnyPokemon()
 	else
 		return run() or attack() or sendUsablePokemon() or sendAnyPokemon()
 	end
 end
-
 
 function onLearningMove()
     if hasMove(1, "Poison Sting") then
@@ -64,6 +64,22 @@ function onLearningMove()
 
 	if hasMove(1, "Peck") then
 	    return forgetMove("Peck")
+	end
+
+	if hasMove(1, "Teleport") then
+	    return forgetMove("Teleport")
+	end
+
+	if hasMove(1, "Seismic Toss") then
+	    return forgetMove("Seismic Toss")
+	end
+
+	if hasMove(1, "Disable") then
+	    return forgetMove("Disable")
+	end
+
+	if hasMove(1, "Miracle Eye") then
+	    return forgetMove("Miracle Eye")
 	end
 
 	if hasMove(1, "Chip Away") then
