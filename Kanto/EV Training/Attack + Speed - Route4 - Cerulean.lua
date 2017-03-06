@@ -1,30 +1,21 @@
-
-name = "Attack + Speed EV: Route 24 (near Cerulean)"
+name = "Attack EV: Route 4 (near Cerulean)"
 author = "Dung Le"
 description = [[This script will train the first pokémon of your team.
-It will only attack pokémon giving attack + speed EV.
+It will only attack pokémon giving speed EV.
 It will also try to capture shinies by throwing pokéballs.
-Start anywhere between Cerulean City and Route 24.]]
+Start anywhere between Cerulean City and Route 4.]]
 
 function onPathAction()
 	if isPokemonUsable(1) then
 		if getMapName() == "Pokecenter Cerulean" then
 			moveToMap("Cerulean City")
 		elseif getMapName() == "Cerulean City" then
-			moveToMap("Route 24")
-		elseif getMapName() == "Route 24" and 14 <= getPlayerX() and 1 <= getPlayerY() and getPlayerX() <= 15 and getPlayerY() <= 30 then
-			moveToMap("Route 25")
-		elseif getMapName() == "Route 25" then
-			moveToCell(9, 30)
-		elseif getMapName() == "Route 24" and 6 <= getPlayerX() and 1 <= getPlayerY() and getPlayerX() <= 10 and getPlayerY() <= 17 then
-			moveToRectangle(6, 2, 8, 5)
+			moveToMap("Route 4")
+		elseif getMapName() == "Route 4" then
+			moveToRectangle(74, 25, 79, 28)
 		end
 	else
-		if getMapName() == "Route 24" and 6 <= getPlayerX() and 1 <= getPlayerY() and getPlayerX() <= 10 and getPlayerY() <= 17 then
-			moveToMap("Route 25")
-		elseif getMapName() == "Route 25" then
-			moveToCell(14, 30)
-		elseif getMapName() == "Route 24" and 14 <= getPlayerX() and 1 <= getPlayerY() and getPlayerX() <= 15 and getPlayerY() <= 30 then
+		if getMapName() == "Route 4" then
 			moveToMap("Cerulean City")
 		elseif getMapName() == "Cerulean City" then
 			moveToMap("Pokecenter Cerulean")
@@ -35,7 +26,7 @@ function onPathAction()
 end
 
 function onBattleAction()
-	if isWildBattle() and isOpponentShiny() or getOpponentName() == "Abra" then
+	if isWildBattle() and isOpponentShiny() then
 		if useItem("Ultra Ball") or useItem("Great Ball") or useItem("Pokeball") then
 			return
 		end
