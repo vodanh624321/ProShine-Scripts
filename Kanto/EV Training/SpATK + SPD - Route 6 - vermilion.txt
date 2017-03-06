@@ -32,12 +32,13 @@ function onBattleAction()
 			return
 		end
 	end
-	if getActivePokemonNumber() == 1 and isOpponentEffortValue("SpAttack") then
-		return attack() or run() or sendUsablePokemon() or sendAnyPokemon()
-	elseif getActivePokemonNumber() == 1 and isOpponentEffortValue("Speed") then
+	if isOpponentEffortValue("SpAttack") or isOpponentEffortValue("Speed") then
 		return attack() or run() or sendUsablePokemon() or sendAnyPokemon()
 	else
-		return run() or attack() or sendUsablePokemon() or sendAnyPokemon()
+		if run() then
+			return
+		end
+		return attack() or sendUsablePokemon() or sendAnyPokemon()
 	end
 end
 
@@ -84,5 +85,9 @@ function onLearningMove()
 
 	if hasMove(1, "Chip Away") then
 	    return forgetMove("Chip Away")
+	end
+
+	if hasMove(1, "Confusion") then
+	    return forgetMove("Confusion")
 	end
 end
