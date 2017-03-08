@@ -7,7 +7,7 @@ It will also try to capture shinies by throwing pokéballs.
 Start anywhere between Vermilion City and Route 6.]]
 
 function onPathAction()
-	if isPokemonUsable(2) and getRemainingPowerPoints(2, "Sleep Powder") >= 1 and getRemainingPowerPoints(1, "Dark Pulse") >= 1 then
+	if isPokemonUsable(1) and isPokemonUsable(2) and getRemainingPowerPoints(2, "Sleep Powder") >= 1 and getRemainingPowerPoints(1, "Dark Pulse") >= 1 then
 		if getMapName() == "Pokecenter Vermilion" then
 			moveToMap("Vermilion City")
 		elseif getMapName() == "Vermilion City" then

@@ -66,6 +66,10 @@ if hasMove(1, "Dream Eater") then
     return forgetMove("Dream Eater")
 end
 
+if hasMove(1, "Dragon Rage") then
+    return forgetMove("Dragon Rage")
+end
+
 if hasMove(1, "Chip Away") then
     return forgetMove("Chip Away")
 end

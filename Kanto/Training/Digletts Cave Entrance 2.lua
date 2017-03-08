@@ -1,12 +1,12 @@
 
-name = "level: Route 11, Land (near Vermilion)"
+name = "level: Digletts Cave Entrance 2, Land (near Vermilion)"
 author = "Dung Le"
 description = [[This script will train the first pokémon of your team.
 It will also try to capture shinies by throwing pokéballs.
-Start anywhere between Vermilion City and Route 11.]]
+Start anywhere between Vermilion City and Digletts Cave Entrance 2.]]
 
 function onPathAction()
-	if isPokemonUsable(2) and getRemainingPowerPoints(2, "Sleep Powder") then
+	if isPokemonUsable(1) and isPokemonUsable(2) and getRemainingPowerPoints(2, "Sleep Powder") then
 		if getMapName() == "Pokecenter Vermilion" then
             moveToMap("Vermilion City")
         elseif getMapName() == "Vermilion City" then
@@ -31,9 +31,15 @@ end
 
 function onBattleAction()
 	if isWildBattle() and isOpponentShiny() then
-		if useItem("Pokeball") or useItem("Great Ball") or useItem("Ultra Ball") then
-			return
-		end
+        if getActivePokemonNumber() == 2 and getOpponentStatus() ~= "SLEEP" then
+            return useMove("Sleep Powder") or run() or sendUsablePokemon() or sendAnyPokemon()
+        end
+
+        if getActivePokemonNumber() == 1 then
+            return sendPokemon(2) or run()
+        end
+
+        return useItem("Pokeball") or useItem("Great Ball") or useItem("Ultra Ball") then
 	end
 
 	if isWildBattle() and getOpponentName() == "Abra" then
