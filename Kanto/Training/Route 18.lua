@@ -3,8 +3,15 @@ author = "Dung Le"
 description = [[This script will train the first pokémon of your team.
 It will also try to capture shinies by throwing pokéballs.
 Start anywhere between Fuchsia City and Route 18.]]
-
+-- function onPathAction()
+--     if isPokemonUsable(3) and isPokemonUsable(2) ~= true then
+--         swapPokemon(2,3)
+--     end
+-- end
 function onPathAction()
+    if isPokemonUsable(3) and isPokemonUsable(2) ~= true then
+        return swapPokemon(2,3)
+    end
     if getUsablePokemonCount() <= 3 then
         if getMapName() == "Route 18" then
             moveToMap("Fuchsia City")
