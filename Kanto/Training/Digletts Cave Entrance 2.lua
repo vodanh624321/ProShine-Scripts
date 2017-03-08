@@ -1,5 +1,4 @@
-
-name = "level: Digletts Cave Entrance 2, Land (near Vermilion)"
+name = "level: Digletts Cave Entrance 2 (near Vermilion)"
 author = "Dung Le"
 description = [[This script will train the first pokémon of your team.
 It will also try to capture shinies by throwing pokéballs.
@@ -30,7 +29,7 @@ function onPathAction()
 end
 
 function onBattleAction()
-	if isWildBattle() and isOpponentShiny() then
+    if isWildBattle() and isOpponentShiny() then
         if getActivePokemonNumber() == 2 and getOpponentStatus() ~= "SLEEP" then
             return useMove("Sleep Powder") or run() or sendUsablePokemon() or sendAnyPokemon()
         end
@@ -39,24 +38,24 @@ function onBattleAction()
             return sendPokemon(2) or run()
         end
 
-        return useItem("Pokeball") or useItem("Great Ball") or useItem("Ultra Ball") then
-	end
+        return useItem("Pokeball") or useItem("Great Ball") or useItem("Ultra Ball")
+    end
 
-	if isWildBattle() and getOpponentName() == "Abra" then
-		return useItem("Pokeball")
-	end
+    if isWildBattle() and getOpponentName() == "Abra" then
+        return useItem("Pokeball")
+    end
 
-	if isWildBattle() and getOpponentName() == "Magnemite" or getOpponentName() == "Gastly" or getOpponentName() == "Haunter" then
-		if getActivePokemonNumber() == 2 and getOpponentStatus() ~= "SLEEP" then
-			return useMove("Sleep Powder") or run() or sendUsablePokemon() or sendAnyPokemon()
-		end
+    if isWildBattle() and getOpponentName() == "Magnemite" or getOpponentName() == "Gastly" or getOpponentName() == "Haunter" then
+        if getActivePokemonNumber() == 2 and getOpponentStatus() ~= "SLEEP" then
+            return useMove("Sleep Powder") or run() or sendUsablePokemon() or sendAnyPokemon()
+        end
 
-		if getActivePokemonNumber() == 1 then
+        if getActivePokemonNumber() == 1 then
             return sendPokemon(2) or run()
         end
 
         return useItem("Pokeball")
-	end
+    end
 
 	if getActivePokemonNumber() == 1 then
 		if getPokemonName(1) == "Haunter" then
