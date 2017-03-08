@@ -1,28 +1,31 @@
 
-name = "SpAttack EV: Route 6, Land (near Vermilion)"
+name = "level: Route 11, Land (near Vermilion)"
 author = "Dung Le"
 description = [[This script will train the first pokémon of your team.
-It will only attack pokémon giving special attack + speed EV.
 It will also try to capture shinies by throwing pokéballs.
-Start anywhere between Vermilion City and Route 6.]]
+Start anywhere between Vermilion City and Route 11.]]
 
 function onPathAction()
-	if isPokemonUsable(2) and getRemainingPowerPoints(2, "Sleep Powder") >= 1 and getRemainingPowerPoints(1, "Dark Pulse") >= 1 then
+	if isPokemonUsable(2) and getRemainingPowerPoints(2, "Sleep Powder") then
 		if getMapName() == "Pokecenter Vermilion" then
-			moveToMap("Vermilion City")
-		elseif getMapName() == "Vermilion City" then
-			moveToMap("Route 6")
-		elseif getMapName() == "Route 6" then
-			moveToRectangle(25, 48, 27, 52)
-		end
+            moveToMap("Vermilion City")
+        elseif getMapName() == "Vermilion City" then
+            moveToMap("Route 11")
+        elseif getMapName() == "Route 11" then
+            moveToMap("Digletts Cave Entrance 2")
+        elseif getMapName() == "Digletts Cave Entrance 2" then
+            moveToRectangle(15,19,25,27)
+        end
 	else
-		if getMapName() == "Route 6" then
-			moveToMap("Vermilion City")
-		elseif getMapName() == "Vermilion City" then
-			moveToMap("Pokecenter Vermilion")
-		elseif getMapName() == "Pokecenter Vermilion" then
-			usePokecenter()
-		end
+		if getMapName() == "Digletts Cave Entrance 2" then
+            moveToMap("Route 11")
+        elseif getMapName() == "Route 11" then
+            moveToMap("Vermilion City")
+        elseif getMapName() == "Vermilion City" then
+            moveToMap("Pokecenter Vermilion")
+        elseif getMapName() == "Pokecenter Vermilion" then
+            usePokecenter()
+        end
 	end
 end
 
@@ -49,14 +52,11 @@ function onBattleAction()
         return useItem("Pokeball")
 	end
 
-	if isOpponentEffortValue("SpAttack") or isOpponentEffortValue("Speed") then
+	if getActivePokemonNumber() == 1 then
 		if getPokemonName(1) == "Haunter" then
 			if getOpponentName() == "Rattata" or getOpponentName() == "Raticate" or getOpponentName() == "Meowth" or getOpponentName() == "Persian" or getOpponentName() == "Pidgey" or getOpponentName() == "Pidgeotto" then
-				if useMove("Dark Pulse") then
-					return
-				end
 
-				return run()
+				return useMove("Dark Pulse") or run()
 			end
 		end
 
