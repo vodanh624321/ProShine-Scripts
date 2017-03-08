@@ -77,3 +77,7 @@ end
 if hasMove(1, "Confusion") then
     return forgetMove("Confusion")
 end
+-- gya
+if hasMove(1, "Hyro dump") then
+    return forgetMove("Hydro Pump")
+end
