@@ -74,6 +74,30 @@ if hasMove(1, "Chip Away") then
     return forgetMove("Chip Away")
 end
 
+if hasMove(1, "Rock Smash") then
+    return forgetMove("Rock Smash")
+end
+
+if hasMove(1, "Future Sight") then
+    return forgetMove("Future Sight")
+end
+
+if hasMove(1, "Reflect") then
+    return forgetMove("Reflect")
+end
+
+if hasMove(1, "Destiny Bond") then
+    return forgetMove("Destiny Bond")
+end
+
+if hasMove(1, "Night Shade") then
+    return forgetMove("Night Shade")
+end
+
+if hasMove(1, "Confusion") then
+    return forgetMove("Confusion")
+end
+
 if hasMove(1, "Confusion") then
     return forgetMove("Confusion")
 end
