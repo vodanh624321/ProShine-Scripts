@@ -25,12 +25,39 @@ function onPathAction()
 end
 
 function onBattleAction()
-	if isWildBattle() and isOpponentShiny() or getOpponentName() == "Abra" then
-		if useItem("Ultra Ball") or useItem("Great Ball") or useItem("Pokeball") then
+	if isWildBattle() and isOpponentShiny() then
+		if useItem("Pokeball") or useItem("Great Ball") or useItem("Ultra Ball") then
 			return
 		end
 	end
-	if isOpponentEffortValue("Attack") or isOpponentEffortValue("Speed") then
+
+	if isWildBattle() and getOpponentName() == "Abra" then
+		return useItem("Pokeball")
+	end
+
+	if isWildBattle() and getOpponentName() == "Magnemite" then
+		if getActivePokemonNumber() == 1 then
+            return sendPokemon(2)
+		elseif ( getActivePokemonNumber() == 2 ) and ( getOpponentStatus() ~= "SLEEP" ) and hasMove("Sleep Powder") then
+			return useMove("Sleep Powder") or run()
+		elseif ( getActivePokemonNumber() == 2 ) or ( getOpponentStatus() == "SLEEP" ) then
+			return useItem("Pokeball") or useItem("Great Ball") or useItem("Ultra Ball")
+		end
+		
+		return useItem("Pokeball")
+	end
+
+	if isOpponentEffortValue("SpAttack") or isOpponentEffortValue("Speed") then
+		if getPokemonName(1) == "Haunter" then
+			if getOpponentName() == "Rattata" or getOpponentName() == "Meowth" then
+				if useMove("Dark Pulse") then
+					return
+				end
+
+				return run()
+			end
+		end
+
 		return attack() or run() or sendUsablePokemon() or sendAnyPokemon()
 	else
 		if run() then
@@ -39,7 +66,6 @@ function onBattleAction()
 		return attack() or sendUsablePokemon() or sendAnyPokemon()
 	end
 end
-
 
 function onLearningMove()
     if hasMove(1, "Poison Sting") then
@@ -80,6 +106,34 @@ function onLearningMove()
 
 	if hasMove(1, "Miracle Eye") then
 	    return forgetMove("Miracle Eye")
+	end
+
+	if hasMove(1, "Future Sight") then
+	    return forgetMove("Future Sight")
+	end
+
+	if hasMove(1, "Mean Lock") then
+	    return forgetMove("Mean Lock")
+	end
+
+	if hasMove(1, "Curse") then
+	    return forgetMove("Curse")
+	end
+
+	if hasMove(1, "Sucker Punch") then
+	    return forgetMove("Sucker Punch")
+	end
+
+	if hasMove(1, "Confuse Ray") then
+	    return forgetMove("Confuse Ray")
+	end
+
+	if hasMove(1, "Shadow Punch") then
+	    return forgetMove("Shadow Punch")
+	end
+
+	if hasMove(1, "Dream Eater") then
+	    return forgetMove("Dream Eater")
 	end
 
 	if hasMove(1, "Chip Away") then

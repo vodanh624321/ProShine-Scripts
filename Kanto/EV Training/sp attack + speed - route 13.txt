@@ -36,7 +36,6 @@ function onBattleAction()
 	end
 end
 
-
 function onLearningMove()
     if hasMove(1, "Poison Sting") then
 	    return forgetMove("Poison Sting")
@@ -102,7 +101,6 @@ function onLearningMove()
 	    return forgetMove("Shadow Punch")
 	end
 
-	
 	if hasMove(1, "Chip Away") then
 	    return forgetMove("Chip Away")
 	end
