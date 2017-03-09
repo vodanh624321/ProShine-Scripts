@@ -78,10 +78,6 @@ if hasMove(1, "Rock Smash") then
     return forgetMove("Rock Smash")
 end
 
-if hasMove(1, "Future Sight") then
-    return forgetMove("Future Sight")
-end
-
 if hasMove(1, "Reflect") then
     return forgetMove("Reflect")
 end
