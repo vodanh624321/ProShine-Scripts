@@ -1,5 +1,5 @@
 -- Venusaur = {"Sleep Powder", "Razor Leaf", "Solar Beam", "Petal Blizzard"}
--- Charizard = {"Shadow Claw", "Dragon Rage", "Wing Attack", "Flare Blitz"}
+Charizard = {"Flamethrower"}
 -- Butterfree = {"Stun Spore", "Psybeam", "Silver Wind", "Bug Buzz"}
 -- Pidgeot = {"Twister", "Wing Attack", "Air Slash", "Hurricane"}
 -- Pikachu = {"Discharge", "Slam", "Thunderbolt","Thunder"}
