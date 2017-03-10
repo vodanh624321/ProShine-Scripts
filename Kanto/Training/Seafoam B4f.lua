@@ -7,7 +7,7 @@ Start anywhere on Seafoam B4.]]
 dofile("../../Util.lua")
 
 function onPathAction()
-	if isPokemonUsable(2) and isPokemonUsable(1) ~= true then
+	if isPokemonUsable(1) ~= true and isPokemonUsable(2) then
         return swapPokemon(1,2)
     end
     if isPokemonUsable(3) and isPokemonUsable(1) ~= true then
@@ -31,7 +31,7 @@ function onPathAction()
 end
 
 function onBattleAction()
-	if isWildBattle() and ( isOpponentShiny() ) then
+	if isWildBattle() and isOpponentShiny() then
 		if useItem("Pokeball") then
 			return
 		end
@@ -43,13 +43,15 @@ function onBattleAction()
 	end
 end
 
--- dofile("../../KeepMoves.lua")
--- function onLearningMove(moveName, pokemonIndex)
---     PokemonsName = getPokemonName(pokemonIndex)
---     log(PokemonsName .. " is learning a new move " .. moveName)
---     if forgetAnyMoveExcept(loadstring(PokemonsName)) then
---         return
---     else 
---         dofile("../../forgetMove.lua")
---     end
--- end
+dofile("../../KeepMoves.lua")
+function onLearningMove(moveName, pokemonIndex)
+    PokemonsName = getPokemonName(pokemonIndex)
+    log(PokemonsName .. " is learning a new move " .. moveName)
+    value = loadstring(PokemonsName)
+    log(value)
+    if value and forgetAnyMoveExcept(value) then
+        return
+    else 
+        dofile("../../forgetMove.lua")
+    end
+end
