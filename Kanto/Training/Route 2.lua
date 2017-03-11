@@ -1,10 +1,11 @@
-
 name = "Attack + Speed EV: Route 2 (near Viridian)"
 author = "Dung Le"
 description = [[This script will train the first pokémon of your team.
 It will only attack pokémon giving attack + speed EV.
 It will also try to capture shinies by throwing pokéballs.
 Start anywhere between Viridian City and Route 2.]]
+
+dofile("../../Util.lua")
 
 function onPathAction()
 	if isPokemonUsable(1) then
@@ -13,7 +14,7 @@ function onPathAction()
 		elseif getMapName() == "Viridian City" then
 			moveToMap("Route 2")
 		elseif getMapName() == "Route 2" then
-			moveToRectangle(18, 119, 20, 123)
+			moveToGrass()
 		end
 	else
 		if getMapName() == "Route 2" then
@@ -32,7 +33,8 @@ function onBattleAction()
 			return
 		end
 	end
-	if getActivePokemonNumber() == 1 and isOpponentEffortValue("Attack") then
+	
+	if getActivePokemonNumber() == 1 then
 		return attack() or run() or sendUsablePokemon() or sendAnyPokemon()
 	else
 		return run() or attack() or sendUsablePokemon() or sendAnyPokemon()

@@ -2,6 +2,10 @@ if hasMove(1, "Poison Sting") then
     return forgetMove("Poison Sting")
 end
 
+if hasMove(1, "Growl") then
+    return forgetMove("Growl")
+end
+
 if hasMove(1, "Leer") then
     return forgetMove("Leer")
 end

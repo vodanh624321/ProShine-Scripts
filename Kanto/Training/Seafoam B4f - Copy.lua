@@ -10,16 +10,16 @@ function onPathAction()
 	if isPokemonUsable(1) ~= true and isPokemonUsable(2) then
         return swapPokemon(1,2)
     end
-    if isPokemonUsable(3) and isPokemonUsable(1) ~= true then
+    if isPokemonUsable(1) ~= true and isPokemonUsable(3) then
         return swapPokemon(1,3)
     end
-    if isPokemonUsable(4) and isPokemonUsable(1) ~= true then
+    if isPokemonUsable(1) ~= true and isPokemonUsable(4) then
         return swapPokemon(1,4)
     end
-    if isPokemonUsable(5) and isPokemonUsable(1) ~= true then
-        return swapPokemon(1,5)
-    end
-	if getUsablePokemonCount() >= 1 then
+    -- if isPokemonUsable(5) and isPokemonUsable(1) ~= true then
+    --     return swapPokemon(1,5)
+    -- end
+	if getUsablePokemonCount() > 2 then
 		if getMapName() == "Seafoam B4F" then
 			moveToRectangle(50, 24, 55, 26)
 		end
@@ -31,12 +31,12 @@ function onPathAction()
 end
 
 function onBattleAction()
-	if isWildBattle() and isOpponentShiny() then
+	if isWildBattle() and (isOpponentShiny() or getOpponentName() == "Slowpoke" or getOpponentName() == "Slowbro") then
 		if useItem("Pokeball") then
 			return
 		end
 	end
-	if getActivePokemonNumber() == 1 or getActivePokemonNumber() == 2 or getActivePokemonNumber() == 3 or getActivePokemonNumber() == 4 or getActivePokemonNumber() == 5 then
+	if getActivePokemonNumber() == 1 or getActivePokemonNumber() == 2 or getActivePokemonNumber() == 3 or getActivePokemonNumber() == 4 then
 		return attack() or sendUsablePokemon() or run() or sendAnyPokemon()
 	else
 		return run() or attack() or sendUsablePokemon() or sendAnyPokemon()
@@ -49,7 +49,7 @@ function onLearningMove(moveName, pokemonIndex)
     log(PokemonsName .. " is learning a new move " .. moveName)
     if move[PokemonsName] and forgetAnyMoveExcept(move[PokemonsName]) then
         return
-    else
+    else 
         dofile("../../forgetMove.lua")
     end
 end

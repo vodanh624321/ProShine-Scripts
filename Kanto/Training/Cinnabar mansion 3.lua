@@ -1,7 +1,19 @@
-
+name = "Leveling: Cinnabar 3f"
+author = "Dung Le"
+description = [[This script will train the first pokémon of your team.
+It will also try to capture shinies by throwing pokéballs.
+Start anywhere on Cinnabar 3f.]]
 function onPathAction()
-    if isPrivateMessageEnabled() then log("Private messages disabled.") return disablePrivateMessage() end
-    if isPokemonUsable(1) and isPokemonUsable(2) and getRemainingPowerPoints(2,"False Swipe") > 0 and getRemainingPowerPoints(2,"Sleep Powder") > 0 then
+    if isPokemonUsable(1) ~= true and isPokemonUsable(2) then
+        return swapPokemon(1,2)
+    end
+    if isPokemonUsable(1) ~= true and isPokemonUsable(3) then
+        return swapPokemon(1,3)
+    end
+    if isPokemonUsable(1) ~= true and isPokemonUsable(4) then
+        return swapPokemon(1,4)
+    end
+    if getUsablePokemonCount() > 2 then
         if getMapName() == "Pokecenter Cinnabar" then
             moveToMap("Cinnabar Island")
         elseif getMapName() == "Cinnabar Island" then
@@ -58,13 +70,6 @@ function onBattleAction()
     --     return useItem("Pokeball") or useItem("Great Ball") or useItem("Ultra Ball")
     -- end
     if isWildBattle() and (hasItem("Pokeball")) then
-        if (getOpponentName() == "Abra" or hasMove(1, "Sleep Powder") or hasMove(1, "Hypnosis")) then
-            if getOpponentStatus() ~= "SLEEP" then
-                return useMove("Sleep Powder") or useMove("Hypnosis") or useItem("Pokeball")
-            end
-
-            return useItem("Pokeball") or useItem("Great Ball") or useItem("Ultra Ball")
-        end
 
         if (isOpponentShiny() or getOpponentName() == "Magnemite" or getOpponentName() == "Magneton" or getOpponentName() == "Gastly" or getOpponentName() == "Haunter" or getOpponentName() == "Magikarp" or getOpponentName() == "Gyarados") then
             if getActivePokemonNumber() == 1 then
@@ -78,11 +83,11 @@ function onBattleAction()
             return useItem("Pokeball") or useItem("Great Ball") or useItem("Ultra Ball")
         end
     
-        if getActivePokemonNumber() >= 1 then
-            return attack() or sendUsablePokemon() or run()
+        if getActivePokemonNumber() > 2 then
+            return attack() or sendUsablePokemon() or run() or sendAnyPokemon()
         end
 
     end
 
-    return attack() or sendUsablePokemon() or run()
+    return attack() or sendUsablePokemon() or run() or sendAnyPokemon()
 end

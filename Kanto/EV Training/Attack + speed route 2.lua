@@ -14,7 +14,7 @@ function onPathAction()
 		elseif getMapName() == "Viridian City" then
 			moveToMap("Route 2")
 		elseif getMapName() == "Route 2" then
-			moveToRectangle(18, 119, 20, 123)
+			moveToGrass()
 		end
 	else
 		if getMapName() == "Route 2" then
@@ -29,7 +29,7 @@ end
 
 function onBattleAction()
 	if isWildBattle() and isOpponentShiny() then
-		if useItem("Ultra Ball") or useItem("Great Ball") or useItem("Pokeball") then
+		if useItem("Pokeball") or useItem("Ultra Ball") or useItem("Great Ball") then
 			return
 		end
 	end
@@ -40,17 +40,4 @@ function onBattleAction()
 	else
 		return run() or attack() or sendUsablePokemon() or sendAnyPokemon()
 	end
-end
-
-dofile("../../KeepMoves.lua")
-function onLearningMove(moveName, pokemonIndex)
-    PokemonsName = getPokemonName(pokemonIndex)
-    log(PokemonsName .. " is learning a new move " .. moveName)
-    value = loadstring(PokemonsName)
-    log(value)
-    if value and forgetAnyMoveExcept(value) then
-        return
-    else 
-        dofile("../../forgetMove.lua")
-    end
 end
