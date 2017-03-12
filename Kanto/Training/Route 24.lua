@@ -1,5 +1,5 @@
 
-name = "Attack + Speed EV: Route 24 (near Cerulean)"
+name = "Level: Route 24 (near Cerulean)"
 author = "Dung Le"
 description = [[This script will train the first pokémon of your team.
 It will only attack pokémon giving attack + speed EV.
@@ -7,12 +7,13 @@ It will also try to capture shinies by throwing pokéballs.
 Start anywhere between Cerulean City and Route 24.]]
 
 dofile("../../Util.lua")
+
 function onPathAction()
 	if isPokemonUsable(1) ~= true and isPokemonUsable(2) then
         return swapPokemon(1,2)
     end
 
-	if getUsablePokemonCount() > 1  then
+	if getUsablePokemonCount() > 3  then
 		if getMapName() == "Pokecenter Cerulean" then
 			moveToMap("Cerulean City")
 		elseif getMapName() == "Cerulean City" then
@@ -22,7 +23,7 @@ function onPathAction()
 		elseif getMapName() == "Route 25" then
 			moveToCell(9, 30)
 		elseif getMapName() == "Route 24" and 6 <= getPlayerX() and 1 <= getPlayerY() and getPlayerX() <= 10 and getPlayerY() <= 17 then
-			moveToGrass()
+			moveToRectangle(6, 2, 8, 5)
 		end
 	else
 		if getMapName() == "Route 24" and 6 <= getPlayerX() and 1 <= getPlayerY() and getPlayerX() <= 10 and getPlayerY() <= 17 then
@@ -45,7 +46,7 @@ function onBattleAction()
 			return
 		end
 	end
-	if getUsablePokemonCount() > 1 and not isOpponentEffortValue("Attack")  then
+	if getUsablePokemonCount() > 3 then
 		return attack() or sendUsablePokemon() or sendAnyPokemon() or run()
 	else
 		return run() or attack() or sendUsablePokemon() or sendAnyPokemon()

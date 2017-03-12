@@ -1,29 +1,29 @@
-name = "Leveling: Victory Road Kanto 3F"
+name = "Leveling: Route 4"
 author = "Dung Le"
 description = [[This script will train the first pokémon of your team.
 It will also try to capture shinies by throwing pokéballs.
-Start anywhere on Victory Road Kanto 3F.]]
+Start anywhere on Route 4.]]
 
 --supports up to 5 stops, leave unused stops blank--
-city = "Indigo Plateau"
-pokecenter = "Indigo Plateau Center"
+city = "Cerulean City"
+pokecenter = "Pokecenter Cerulean"
 stop1 = ""
 stop2 = ""
 stop3 = ""
 stop4 = ""
 stop5 = ""
-endLocation = "Victory Road Kanto 3F"
+endLocation = "Route 4"
 
 --if no city, and pokecenter is on route, change this to true, and leave city blank--
 pokecenterOnRoute = false
 
 --pokemon center at location(pokecenterX, pokecenterY)--
-pokecenterIsNPC = true
+pokecenterIsNPC = false
 pokecenterX = 4
 pokecenterY = 22
 
 --Leave this true unless you are not fighting/catching in grass--
-lookForGrass = false
+lookForGrass = true
 
 --If the above is false, what rectangle do you want to walk within at your endLocation?--
 rectX1 = 28
@@ -33,14 +33,14 @@ rectY2 = 21
 
 --the below will be the percentage of your opponent's health we'll start throwing balls at--
 --DEFAULT: 30--
-percentToStartThrowing = 30
+percentToStartThrowing = 100
 --DEFAULT: 50--
 percentToStartThrowingIfShiny = 100
 
 --Do you want to catch shineys and uncaught pokemon?--
 catchShineys = true
 
-catchNotCaught = true
+catchNotCaught = false
 
 --Do you only want to catch pokemon, and not level?--
 onlyCatch = false
@@ -48,7 +48,7 @@ onlyCatch = false
 --the below is case-sensitive, add more moves by adding commas. ex : onlyCatchThesePokemon = {"Pokemon 1", "Pokemon 2", "Pokemon 3"}--
 --Even if you set all other capture variables to false, we'll still try to catch these/this pokemon--
 --Leave an empty "" here if you aren't using it--
-catchThesePokemon = {"Charmander", "Abra"}
+catchThesePokemon = {"Charmander", "Abra", "Onix", "Magnemite", "Jigglypuff"}
 
 --the below will be the percentage of your last alive poke's health that we'll stop fighting at--
 --DEFAULT: 50--
@@ -60,19 +60,11 @@ levelPokesTo = 99
 dofile("../../Util.lua")
 
 function onPathAction()
-    if isPokemonUsable(1) ~= true and isPokemonUsable(2) then
-        return swapPokemon(1,2)
-    end
-    if isPokemonUsable(1) ~= true and isPokemonUsable(3) then
-        return swapPokemon(1,3)
-    end
-    if isPokemonUsable(1) ~= true and isPokemonUsable(4) then
-        return swapPokemon(1,4)
-    end
-    if isPokemonUsable(5) and isPokemonUsable(1) ~= true then
-        return swapPokemon(1,5)
-    end
-if getUsablePokemonCount() > 1 
+    -- changePokeUsable()
+    -- if isPokemonUsable(1) ~= true and isPokemonUsable(2) then
+        -- return swapPokemon(1,2)
+    -- end
+    if isPokemonUsable(1)
     -- and getPokemonHealthPercent(getTeamSize()) >= healthToRunAt and isPokemonUsable(ReturnHighestIndexUnderLevel()) 
     then
     
@@ -332,8 +324,11 @@ end --condition--
 end --func--
 
 function onBattleAction()
-    if getUsablePokemonCount() > 1 then
+    if getActivePokemonNumber() <= getTeamSize() then
         if isWildBattle() and ((isOpponentShiny() and catchShineys) or (catchNotCaught and not isAlreadyCaught())) or IsPokemonOnCaptureList() then
+            if getOpponentName() == "Abra" then
+                return useItem("Pokeball")
+            end
             if getPokemonHealthPercent(getTeamSize()) > healthToRunAt then
                 if isPokemonUsable(getActivePokemonNumber()) then
                     if getOpponentHealthPercent() >= percentToStartThrowing and not isOpponentShiny() then
@@ -346,6 +341,8 @@ function onBattleAction()
                         end
                     end
                     if getOpponentHealthPercent() >= percentToStartThrowingIfShiny and isOpponentShiny() then
+                        return weakAttack()
+                    else
                         if useItem("Ultra Ball") or useItem("Great Ball") or useItem("Pokeball") then
                             return
                         else
@@ -359,14 +356,13 @@ function onBattleAction()
                 return run()
             end
         else
-            if getUsablePokemonCount() <= 1 or onlyCatch then
-                return run() or attack() or sendUsablePokemon() or sendAnyPokemon()
-            elseif 
+            if getActivePokemonNumber() == 1 and (isOpponentEffortValue("Attack") 
+                -- or isOpponentEffortValue("Speed")
+                ) then
                 return attack() or sendUsablePokemon() or run() or sendAnyPokemon()
-                
             end
+            
+            return run() or attack() or sendUsablePokemon() or sendAnyPokemon()
         end
     end
-
-    return run() or attack() or sendUsablePokemon() or sendAnyPokemon()
 end

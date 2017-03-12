@@ -6,6 +6,8 @@ It will only attack pokémon giving attack + speed EV.
 It will also try to capture shinies by throwing pokéballs.
 Start anywhere between Cerulean City and Route 24.]]
 
+dofile("../../Util.lua")
+
 function onPathAction()
 	if isPokemonUsable(1) ~= true and isPokemonUsable(2) then
         return swapPokemon(1,2)

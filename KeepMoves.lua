@@ -16,6 +16,7 @@ moves["Charmeleon"] = {"Ember", "Dragon Rage", "Flame Burst", "Flamethrower"} --
 -- #006 Charizard - Fire - Final Form
 moves["Charizard"] = {"Flamethrower"} -- Fire.
 moves["Doduo"] = {"Quick Attack", "Pluck"}
+moves["Dodrio"] = {"Quick Attack", "Pluck", "Drill Peck"}
 moves["Primeape"] = {"Close Combat", "Punishment", "Outrage", "Stone Edge", "Earthquake"}
 moves["Mankey"] = {"Close Combat", "Punishment", "Outrage", "Earthquake", "Covet"}
 
@@ -80,6 +81,6 @@ moves["Dragonair"] = {"Thunder Wave", "Twister", "Aqua Tail", "Dragon Rush"} -- 
 moves["Dragonite"] = {"Aqua Tail", "Dragon Rush", "Outrage"} -- Water, Dragon, Dragon, Flying.
 
 -- #095 Onix - Rock/Ground --# Trade Holding Metal Coat To Evolve into Steelix #--
-moves["Onix"] = {"Rock Slide", "Iron Tail", "Dig", "Stone Edge"}
+moves["Onix"] = {"Rock Slide", "Iron Tail", "Dig", "Stone Edge", "Gyro Ball"}
 -- #208 Steelix - Steel/Ground - Final Form after Trade
 --moves["Steelix"] = {"", "", "", ""}
