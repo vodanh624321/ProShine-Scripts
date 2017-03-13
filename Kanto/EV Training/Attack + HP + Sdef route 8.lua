@@ -48,7 +48,7 @@ onlyCatch = false
 --the below is case-sensitive, add more moves by adding commas. ex : onlyCatchThesePokemon = {"Pokemon 1", "Pokemon 2", "Pokemon 3"}--
 --Even if you set all other capture variables to false, we'll still try to catch these/this pokemon--
 --Leave an empty "" here if you aren't using it--
-catchThesePokemon = {"Charmander", "Onix", "Magnemite"}
+catchThesePokemon = {"Charmander", "Onix", "Magnemite", "Haunter", "Gaslty"}
 
 --the below will be the percentage of your last alive poke's health that we'll stop fighting at--
 --DEFAULT: 50--

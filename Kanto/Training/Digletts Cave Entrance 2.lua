@@ -10,6 +10,9 @@ function onPathAction()
     if isPokemonUsable(1) ~= true and isPokemonUsable(2) then
         return swapPokemon(1,2)
     end
+    if isPokemonUsable(1) ~= true and isPokemonUsable(3) then
+        return swapPokemon(1,3)
+    end
     if getUsablePokemonCount() > 1
         -- and getRemainingPowerPoints(2, "Sleep Powder") 
         then
@@ -53,18 +56,18 @@ function onBattleAction()
     end
 
     if isWildBattle() and getOpponentName() == "Magnemite" or getOpponentName() == "Gastly" or getOpponentName() == "Haunter" then
-        if getActivePokemonNumber() == 2 and getOpponentStatus() ~= "SLEEP" then
-            return useMove("Sleep Powder") or run() or sendUsablePokemon() or sendAnyPokemon()
-        end
+        -- if getActivePokemonNumber() == 2 and getOpponentStatus() ~= "SLEEP" then
+        --     return useMove("Sleep Powder") or run() or sendUsablePokemon() or sendAnyPokemon()
+        -- end
 
-        if getActivePokemonNumber() == 1 then
-            return sendPokemon(2) or run()
-        end
+        -- if getActivePokemonNumber() == 1 then
+        --     return sendPokemon(2) or run()
+        -- end
 
         return useItem("Pokeball")
     end
 
-	if getActivePokemonNumber() == 1 then
+	if getUsablePokemonCount() >= 1 then
 		-- if getPokemonName(1) == "Haunter" then
 		-- 	if getOpponentName() == "Rattata" or getOpponentName() == "Raticate" or getOpponentName() == "Meowth" or getOpponentName() == "Persian" or getOpponentName() == "Pidgey" or getOpponentName() == "Pidgeotto" then
 

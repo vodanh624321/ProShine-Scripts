@@ -7,7 +7,7 @@ moves["Bulbasaur"] = {"Tackle", "Sleep Powder", "Razor Leaf"} -- Normal, Grass, 
 -- #002 Ivysaur - Grass/Poison - Evolves at Level 32
 moves["Ivysaur"] = {"Vine Whip", "Sleep Powder", "Razor Leaf", "Solar Beam"} -- Grass, Grass, Grass, Grass.
 -- #003 Venusaur - Grass/Poison - Final Form
-moves["Venusaur"] = {"Sleep Powder", "Razor Leaf", "Petal Blizzard", "Solar Beam"} -- Grass, Grass, Grass, Grass.
+moves["Venusaur"] = {"Sleep Powder", "Petal Blizzard", "Solar Beam", "Petal Dance", "Leech Seed"} -- Grass, Grass, Grass, Grass.
 
 -- #004 Charmander - Fire - Evolves at Level 16
 moves["Charmander"] = {"Scratch", "Ember", "Dragon Rage", "Flame Burst"} -- Normal, Fire, Dragon, Fire.
@@ -81,6 +81,6 @@ moves["Dragonair"] = {"Thunder Wave", "Twister", "Aqua Tail", "Dragon Rush"} -- 
 moves["Dragonite"] = {"Aqua Tail", "Dragon Rush", "Outrage"} -- Water, Dragon, Dragon, Flying.
 
 -- #095 Onix - Rock/Ground --# Trade Holding Metal Coat To Evolve into Steelix #--
-moves["Onix"] = {"Rock Slide", "Iron Tail", "Dig", "Stone Edge", "Gyro Ball"}
+moves["Onix"] = {"Rock Slide", "Dig", "Stone Edge", "Gyro Ball"}
 -- #208 Steelix - Steel/Ground - Final Form after Trade
 --moves["Steelix"] = {"", "", "", ""}

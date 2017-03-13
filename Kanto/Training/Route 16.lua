@@ -1,29 +1,29 @@
-name = "Leveling: Victory Road Kanto 3F"
+name = "Leveling: Route 16"
 author = "Dung Le"
 description = [[This script will train the first pokémon of your team.
 It will also try to capture shinies by throwing pokéballs.
-Start anywhere on Victory Road Kanto 3F.]]
+Start anywhere on Route 16.]]
 
 --supports up to 5 stops, leave unused stops blank--
-city = "Indigo Plateau"
-pokecenter = "Indigo Plateau Center"
+city = "Celadon City"
+pokecenter = "Pokecenter Celadon"
 stop1 = ""
 stop2 = ""
 stop3 = ""
 stop4 = ""
 stop5 = ""
-endLocation = "Victory Road Kanto 3F"
+endLocation = "Route 16"
 
 --if no city, and pokecenter is on route, change this to true, and leave city blank--
 pokecenterOnRoute = false
 
 --pokemon center at location(pokecenterX, pokecenterY)--
-pokecenterIsNPC = true
+pokecenterIsNPC = false
 pokecenterX = 4
 pokecenterY = 22
 
 --Leave this true unless you are not fighting/catching in grass--
-lookForGrass = false
+lookForGrass = true
 
 --If the above is false, what rectangle do you want to walk within at your endLocation?--
 rectX1 = 28
@@ -40,7 +40,7 @@ percentToStartThrowingIfShiny = 100
 --Do you want to catch shineys and uncaught pokemon?--
 catchShineys = true
 
-catchNotCaught = true
+catchNotCaught = false
 
 --Do you only want to catch pokemon, and not level?--
 onlyCatch = false
@@ -66,12 +66,12 @@ function onPathAction()
     if isPokemonUsable(1) ~= true and isPokemonUsable(3) then
         return swapPokemon(1,3)
     end
-    if isPokemonUsable(1) ~= true and isPokemonUsable(4) then
-        return swapPokemon(1,4)
-    end
-    if isPokemonUsable(5) and isPokemonUsable(1) ~= true then
-        return swapPokemon(1,5)
-    end
+    -- if isPokemonUsable(1) ~= true and isPokemonUsable(4) then
+    --     return swapPokemon(1,4)
+    -- end
+    -- if isPokemonUsable(5) and isPokemonUsable(1) ~= true then
+    --     return swapPokemon(1,5)
+    -- end
 if getUsablePokemonCount() > 1 
     -- and getPokemonHealthPercent(getTeamSize()) >= healthToRunAt and isPokemonUsable(ReturnHighestIndexUnderLevel()) 
     then
@@ -342,18 +342,18 @@ function onBattleAction()
                         if useItem("Pokeball") or useItem("Great Ball") then
                             return
                         else
-                            return attack() or sendUsablePokemon() or run()
+                            return attack() or sendUsablePokemon() or run() or sendAnyPokemon()
                         end
                     end
                     if getOpponentHealthPercent() >= percentToStartThrowingIfShiny and isOpponentShiny() then
                         if useItem("Ultra Ball") or useItem("Great Ball") or useItem("Pokeball") then
                             return
                         else
-                            return attack() or sendUsablePokemon() or run()
+                            return attack() or sendUsablePokemon() or run() or sendAnyPokemon()
                         end
                     end
                 else
-                    return sendUsablePokemon()
+                    return sendUsablePokemon() or sendAnyPokemon()
                 end
             else
                 return run()
