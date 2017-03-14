@@ -1,23 +1,37 @@
 moves = {}
-
-moves["Wartortle"] = {"Hydro Pump", "Water Pulse", "Bubble", "Flash Cannon"}
-moves["Blastoise"] = {"Hydro Pump", "Water Pulse", "Bubble", "Flash Cannon"}
+-- for egg
+moves["Squirtle"]  = {"Hydro Pump", "Flash Cannon", "Bubble Beam", "Ice Beam", "Surf", "Scald", "Aura Sphere", "Dark Pluse", "Road", "Toxic", "Muddy Water", "Dragon Pulse", "Water Spout"}
+moves["Wartortle"] = {"Hydro Pump", "Flash Cannon", "Bubble Beam", "Ice Beam", "Surf", "Scald", "Aura Sphere", "Dark Pluse", "Road", "Toxic", "Muddy Water", "Dragon Pulse", "Water Spout"}
+moves["Blastoise"] = {"Hydro Pump", "Flash Cannon", "Bubble Beam", "Ice Beam", "Surf", "Scald", "Aura Sphere", "Dark Pluse", "Road", "Toxic", "Muddy Water", "Dragon Pulse", "Water Spout"}
 -- #001 Bulbasaur - Grass/Poison - Evolves at Level 16
 moves["Bulbasaur"] = {"Tackle", "Sleep Powder", "Razor Leaf"} -- Normal, Grass, Grass, Grass.
 -- #002 Ivysaur - Grass/Poison - Evolves at Level 32
-moves["Ivysaur"] = {"Vine Whip", "Sleep Powder", "Razor Leaf", "Solar Beam"} -- Grass, Grass, Grass, Grass.
+moves["Ivysaur"] = {"Energy Ball", "Sleep Powder", "Solar Beam", "Sludge Bomb", "Petal Dance", "Leaf Storm", "Substitute"}
 -- #003 Venusaur - Grass/Poison - Final Form
-moves["Venusaur"] = {"Sleep Powder", "Petal Blizzard", "Solar Beam", "Petal Dance", "Leech Seed"} -- Grass, Grass, Grass, Grass.
+moves["Venusaur"] = {"Sleep Powder", "Energy Ball", "Solar Beam", "Sludge Bomb", "Petal Dance", "Leaf Storm", "Substitute"}
 
 -- #004 Charmander - Fire - Evolves at Level 16
 moves["Charmander"] = {"Scratch", "Ember", "Dragon Rage", "Flame Burst"} -- Normal, Fire, Dragon, Fire.
 -- #005 Charmeleon - Fire - Evolves at Level 36
-moves["Charmeleon"] = {"Ember", "Dragon Rage", "Flame Burst", "Flamethrower"} -- Fire, Dragon, Fire, Fire.
+moves["Charmeleon"] = {"Flame Burst", "Flamethrower"}
 -- #006 Charizard - Fire - Final Form
-moves["Charizard"] = {"Flamethrower"} -- Fire.
-moves["Doduo"] = {"Quick Attack", "Pluck"}
-moves["Dodrio"] = {"Quick Attack", "Pluck", "Drill Peck"}
-moves["Primeape"] = {"Close Combat", "Punishment", "Outrage", "Stone Edge", "Earthquake"}
+-- Move
+-- -Fire Blast
+-- -Solar Beam/ Ancient Power
+-- -Focus Blast
+-- -Dragon Pulse / Overheat
+-- Item Attached: Choice Specs / Choice Scarf
+-- Ability: Solar Power
+-- EVs and Nature:
+-- EVs: 252 SpA / 4 Def / 252 Spe
+-- Modest Nature / Timid Nature
+-- moves["Charizard"] = {"Dragon Pulse", "Focus Blast", "Fire Blast", "Ancient Power"}
+moves["Charizard"] = {"Flamethrower", "Dragon Pulse", "Focus Blast", "Fire Blast", "Overheat", "Ancient Power"}
+
+moves["Doduo"] = {"Quick Attack", "Drill Peck", "Jump Kick", "Thrash", "Giga Impact", "Fly", "Swords Dance"}
+moves["Dodrio"] = {"Quick Attack", "Drill Peck", "Jump Kick", "Thrash", "Giga Impact", "Fly", "Swords Dance"}
+
+moves["Primeape"] = {"Close Combat", "Punishment", "Outrage", "Stone Edge", "Earthquake", "Uturn"}
 moves["Mankey"] = {"Close Combat", "Punishment", "Outrage", "Earthquake", "Covet"}
 
 -- #010 Caterpie - Bug - Evolves at Level 07
@@ -55,15 +69,44 @@ moves["Graveler"] = {"Bulldoze", "Earthquake", "Double-Edge", "Stone Edge"}
 -- #076 Golem - Rock/Ground - Final Form after Trade
 -- moves["Golem"] = {"", "", "", ""}
 
-moves["Gyarados"] = {"Dragon Dance", "Crunch", "Ice Fang", "Aqua Tail", "Stone Edge", "Earthquake"}
+moves["Gyarados"] = {"Dragon Dance", "Crunch", "Ice Fang", "Aqua Tail", "Stone Edge", "Earthquake", "Waterfall"}
+-- Nature: Impish
+-- Ability: Intimidate
+-- Item: Leftovers
+-- Moveset:
+-- – Rest
+-- – Sleep Talk
+-- – Waterfall
+-- – Roar
+-- EVs: 248 HP / 252 Def / 8 SDf
+-- moves["Gyarados"] = {"Rest", "Sleep Talk", "Waterfall", "Roar", "Dragon Dance", "Earthquake"}
 moves["Magikarp"] = {"Tackle", "Flail"}
-moves["Gloom"] = {"Sleep Powder", "Cut"}
+
+moves["Gloom"] = {"Sleep Powder"}
 -- speed or Sp attack or Sleep Talk and Rest or Substitute and Recover and Reflect
-moves["Kadabra"] = {"Recover", "Calm Mind", "Psyshock", "Hidden Power", "Psychic", "Focus Blast"}
-moves["Alakazam"] = {"Recover", "Calm Mind", "Psyshock", "Hidden Power", "Psychic", "Focus Blast"}
+moves["Kadabra"] = {"Recover", "Reflect", "Calm Mind", "Psychic", "Focus Blast", "Trick"}
+-- - Focus Blast
+-- - Shadow Ball
+-- - Trick
+-- Item Attached:: Choice Specs
+-- Trait: Synchronize
+-- EVs: 4 HP / 252 Spd / 252 SAtk
+-- Timid Nature (+Spd, -Atk)
+-- moves["Alakazam"] = {"Shadow Ball", "Trick", "Psychic", "Focus Blast"}
+moves["Alakazam"] = {"Recover", "Reflect", "Calm Mind", "Psychic", "Focus Blast"}
+
 -- Speed or Sp attack or Sleep Talk and Rest or Substitute
-moves["Haunter"] = {"Dark Pulse", "Shadow Ball", "Hidden Power", "Thunder", "Focus Blast", "Hypnosis"}
-moves["Gengar"] = {"Dark Pulse", "Shadow Ball", "Hidden Power", "Thunder", "Focus Blast", "Hypnosis"}
+moves["Haunter"] = {"Dark Pulse", "Shadow Ball", "Thunder", "Focus Blast", "Thunderbolt", "Explosion"}
+-- Nature: Timid
+-- Ability: Levitate
+-- Item: Life Orb
+-- Moveset:
+-- – Shadow Ball
+-- – Thunderbolt
+-- – Focus Blast
+-- – Hidden Power Fire / Explosion
+-- EVs: 4 Def / 252 SpA / 252 Spd
+moves["Gengar"] = {"Dark Pulse", "Shadow Ball", "Thunder", "Focus Blast", "Thunderbolt", "Explosion"}
 
 -- #209 Snubbull - Evolves at Level 23
 moves["Snubbull"] = {"Thunder Fang", "Fire Fang", "Bite", "Headbutt"}
@@ -78,9 +121,29 @@ moves["Dratini"] = {"Twister", "Dragon Rage", "Slam", "Aqua Tail"} -- Dragon, Dr
 -- #148 Dragonair - Dragon - Evolves at Level 55
 moves["Dragonair"] = {"Thunder Wave", "Twister", "Aqua Tail", "Dragon Rush"} -- Electric, Dragon, Dragon, Water, Dragon.
 -- #149 Dragonite - Dragon - Final Form
-moves["Dragonite"] = {"Aqua Tail", "Dragon Rush", "Outrage"} -- Water, Dragon, Dragon, Flying.
+-- moves["Dragonite"] = {"Aqua Tail", "Dragon Rush", "Outrage"} -- Water, Dragon, Dragon, Flying.
+
+-- Nature: Adamant
+-- Ability: Inner Focus
+-- Item: Leftovers / Life Orb / Lum Berry
+-- Moveset:
+-- – Dragon Dance
+-- – Dragon Claw / Outrage
+-- – Earthquake
+-- – Roost
+-- EVs: 252 HP / 52 Atk / 204 Spd
+moves["Dragonite"] = {"Dragon Dance", "Earthquake", "Root", "Dragon Claw"}
 
 -- #095 Onix - Rock/Ground --# Trade Holding Metal Coat To Evolve into Steelix #--
-moves["Onix"] = {"Rock Slide", "Dig", "Stone Edge", "Gyro Ball"}
+-- Move
+-- - Earthquake
+-- - Stone Edge / Gyro Ball
+-- - Stealth Rock
+-- - Explosion
+-- Item Attached: Leftovers
+-- Ability: Sturdy
+-- EVs: 252 HP / 120 Atk / 136 SDef
+-- Impish Nature (+Def, -SAtk) / Relaxed Nature (+Def, -Spd)
+moves["Onix"] = {"Rock Slide", "Iron Tail", "Dig", "Stone Edge", "Gyro Ball", "Explosion"}
 -- #208 Steelix - Steel/Ground - Final Form after Trade
---moves["Steelix"] = {"", "", "", ""}
+moves["Steelix"] = {"Stealth Rock", "Explosion", "Earthquake", "Stone Edge", "Gyro Ball"}
