@@ -43,12 +43,12 @@ end
 
 function onBattleAction()
     if isWildBattle() and ( isOpponentShiny()  or getOpponentName() == "Gastly" or getOpponentName() == "Haunter") then
-        if health < getOpponentHealthPercent() then
-            return useMove("Leech Seed") or sendAnyPokemon()
+        if health < getOpponentHealthPercent() and getRemainingPowerPoints(1,"Leech Seed") > 0 then
+            return useMove("Leech Seed") or useItem("Pokeball") or weakAttack()
         end
 
-        if (getOpponentStatus() ~= "SLEEP") then
-            -- If you want to use Sleep Powder, then replace Hypnosis with Sleep Powder 
+        if (getOpponentStatus() ~= "SLEEP") and getRemainingPowerPoints(1,"Sleep Powder") > 0 then
+            -- If you want to use Sleep Powder, then replace with Hypnosis
             return useMove("Sleep Powder") or useItem("Pokeball") or useItem("Great Ball") or useItem("Ultra Ball") or sendUsablePokemon() or sendAnyPokemon()
         else
             return useItem("Pokeball") or useItem("Great Ball") or useItem("Ultra Ball") or sendUsablePokemon() or sendAnyPokemon()
