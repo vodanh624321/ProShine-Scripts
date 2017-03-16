@@ -117,9 +117,9 @@ moves["Granbull"] = {"Headbutt", "Play Rough", "Crunch", "Outrage"}
 moves["Lapras"] = {"Confuse Ray", "Water Pulse", "Ice Beam", "Brine", "Hydro Pump"} -- Ghost, Water, Ice, Water, Water.
 
 -- #147 Dratini - Dragon - Evolves at Level 30
-moves["Dratini"] = {"Twister", "Dragon Rage", "Slam", "Aqua Tail"} -- Dragon, Dragon, Normal, Dragon.
+moves["Dratini"] = {"Outrage", "Dragon Dance", "Dragon Rush", "Root", "Aqua Tail"} -- Dragon, Dragon, Normal, Dragon.
 -- #148 Dragonair - Dragon - Evolves at Level 55
-moves["Dragonair"] = {"Thunder Wave", "Twister", "Aqua Tail", "Dragon Rush"} -- Electric, Dragon, Dragon, Water, Dragon.
+moves["Dragonair"] = {"Outrage", "Dragon Dance", "Dragon Rush", "Root", "Aqua Tail"} -- Electric, Dragon, Dragon, Water, Dragon.
 -- #149 Dragonite - Dragon - Final Form
 -- moves["Dragonite"] = {"Aqua Tail", "Dragon Rush", "Outrage"} -- Water, Dragon, Dragon, Flying.
 
@@ -147,3 +147,28 @@ moves["Dragonite"] = {"Dragon Dance", "Earthquake", "Root", "Dragon Claw"}
 moves["Onix"] = {"Rock Slide", "Iron Tail", "Dig", "Stone Edge", "Gyro Ball", "Explosion"}
 -- #208 Steelix - Steel/Ground - Final Form after Trade
 moves["Steelix"] = {"Stealth Rock", "Explosion", "Earthquake", "Stone Edge", "Gyro Ball"}
+
+-- - Discharge / Thunderbolt
+-- - Flash Cannon
+-- - Hidden Power Fire / Metal Sound
+-- - Protect 
+-- Item Attached: Air Balloon / Focus Sash / Safety Goggles
+-- Ability: Magnet Pull
+-- EVs and Nature:
+-- EVs: 236 HP / 252 SAtk / 20 Speed
+-- Modest Natutre
+moves["Magnemite"] = {"Flash Cannon", "Discharge", "Volt Switch", "Thunderbolt"}
+moves["Magneton"] = {"Flash Cannon", "Discharge", "Volt Switch", "Thunderbolt"}
+moves["Magnezone"] = {"Flash Cannon", "Discharge", "Volt Switch", "Thunderbolt"}
+
+-- -Calm Mind
+-- -Scald
+-- -Psyshock
+-- -Slack Off
+-- Item Attached: Leftovers
+-- Ability: Regenerator
+-- EVs and Nature:
+-- EVs: 252 HP / 232 Def / 24 SpD
+-- Bold Nature
+moves["Slowbro"] = {"Calm Mind", "Scald", "Psyshock", "Slack Off"}
+moves["Slowpoke"] = {"Calm Mind", "Scald", "Psyshock", "Slack Off"}
