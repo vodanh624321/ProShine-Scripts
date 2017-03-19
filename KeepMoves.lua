@@ -95,8 +95,9 @@ moves["Kadabra"] = {"Recover", "Reflect", "Calm Mind", "Psychic", "Focus Blast",
 -- moves["Alakazam"] = {"Shadow Ball", "Trick", "Psychic", "Focus Blast"}
 moves["Alakazam"] = {"Recover", "Reflect", "Calm Mind", "Psychic", "Focus Blast"}
 
+moves["Gastly"] = {"Dark Pulse", "Shadow Ball", "Thunder", "Focus Blast", "Thunderbolt", "Explosion", "Psychic"}
 -- Speed or Sp attack or Sleep Talk and Rest or Substitute
-moves["Haunter"] = {"Dark Pulse", "Shadow Ball", "Thunder", "Focus Blast", "Thunderbolt", "Explosion"}
+moves["Haunter"] = {"Dark Pulse", "Shadow Ball", "Thunder", "Focus Blast", "Thunderbolt", "Explosion", "Psychic"}
 -- Nature: Timid
 -- Ability: Levitate
 -- Item: Life Orb

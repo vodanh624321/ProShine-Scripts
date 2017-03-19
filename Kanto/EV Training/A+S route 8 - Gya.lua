@@ -67,14 +67,14 @@ function onPathAction()
     -- if isPokemonUsable(1) ~= true and isPokemonUsable(2) then
         -- return swapPokemon(1,2)
     -- end
-    if isPokemonUsable(1)
+    if isPokemonUsable(1) and isPokemonUsable(2)
     -- and getPokemonHealthPercent(getTeamSize()) >= healthToRunAt and isPokemonUsable(ReturnHighestIndexUnderLevel()) 
     then
     
     -- if not onlyCatch and not IsSorted() then
     --     sortTeamByLevelAscending()
     -- else
-    if not isMounted() and hasItem("Bicycle") and not string.find(getMapName(), "Center") and not string.find(getMapName(), "Tunnel") and not string.find(getMapName(), "Stop") and not string.find(getMapName(), "Cave") and not string.find(getMapName(), "Mt") and not string.find(getMapName(), "Tower") and not string.find(getMapName(), "mansion") and not string.find(getMapName(), "Victory") and not string.find(getMapName(), "center") then
+    if not isMounted() and hasItem("Bicycle") and not string.find(getMapName(), "Center") and not string.find(getMapName(), "Tunnel") and not string.find(getMapName(), "Stop") and not string.find(getMapName(), "Cave") and not string.find(getMapName(), "Mt") and not string.find(getMapName(), "Tower") and not string.find(getMapName(), "mansion") and not string.find(getMapName(), "Victory") and not string.find(getMapName(), "center") and not string.find(getMapName(), "Pokemart") then
         useItem("Bicycle")
         log("Getting on bike.")
 
@@ -329,9 +329,9 @@ end --func--
 function onBattleAction()
     if getActivePokemonNumber() <= getTeamSize() then
         if isWildBattle() and hasItem("Pokeball") and ((isOpponentShiny() and catchShineys) or (catchNotCaught and not isAlreadyCaught())) or IsPokemonOnCaptureList() then
-            -- if getOpponentName() == "Abra" then
-                -- return useItem("Pokeball")
-            -- end
+            if getOpponentName() == "Abra" then
+                return useItem("Pokeball")
+            end
             if getPokemonHealthPercent(getTeamSize()) > healthToRunAt then
                 if isPokemonUsable(getActivePokemonNumber()) then
                     if getOpponentHealthPercent() >= percentToStartThrowing and not isOpponentShiny() then
@@ -360,7 +360,11 @@ function onBattleAction()
             end
         else
             if isOpponentEffortValue("ATK") or isOpponentEffortValue("Speed") then
-                return attack() or sendUsablePokemon() or run() or sendAnyPokemon()
+                if getActivePokemonNumber() == 1 and getPokemonLevel(1) <= 26 then
+                    return sendPokemon(2) or sendUsablePokemon() or sendAnyPokemon()
+                else
+                    return attack() or sendUsablePokemon() or run() or sendAnyPokemon()
+                end
             end
             
             return run() or attack() or sendUsablePokemon() or sendAnyPokemon()
