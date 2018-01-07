@@ -28,7 +28,7 @@ moves["Charmeleon"] = {"Flame Burst", "Flamethrower"}
 -- moves["Charizard"] = {"Dragon Pulse", "Focus Blast", "Fire Blast", "Ancient Power"}
 moves["Charizard"] = {"Flamethrower", "Dragon Pulse", "Focus Blast", "Fire Blast", "Overheat", "Ancient Power"}
 
-moves["Doduo"] = {"Quick Attack", "Drill Peck", "Jump Kick", "Thrash", "Giga Impact", "Fly", "Swords Dance"}
+moves["Doduo"] = {"Quick Attack", "Drill Peck", "Jump Kick", "Thrash", "Giga Impact", "Fly", "Swords Dance", "Pursuit"}
 moves["Dodrio"] = {"Quick Attack", "Drill Peck", "Jump Kick", "Thrash", "Giga Impact", "Fly", "Swords Dance"}
 
 moves["Primeape"] = {"Close Combat", "Punishment", "Outrage", "Stone Edge", "Earthquake", "Uturn"}
@@ -58,7 +58,7 @@ moves["Pidgeot"] = {"Twister", "Wing Attack", "Air Slash", "Hurricane"}
 -- #172 Pichu - Electric --# Evolve by Happiness #--
 moves["Pichu"] = {"Thunder Shock", "Sweet Kiss", "Nasty Plot", "Thunder Wave"} -- Electric, Fairy, Dark, Electric
 -- #025 Pikachu - Electric --# Thunderstone To Evolve into Raichu #--
-moves["Pikachu"] = {"Discharge", "Slam", "Thunderbolt", "Thunder"} -- Electric, Normal, Electric, Electric
+moves["Pikachu"] = {"Discharge", "Slam", "Thunderbolt", "Thunder", "Quick Attack", "Electro Ball"} -- Electric, Normal, Electric, Electric
 -- #026 Raichu - Electric - Final Form
 moves["Raichu"] = {"Double Slap", "Fake Out", "Thunder Punch", "Wish"} -- Normal, Normal, Electric, Normal
 
@@ -173,3 +173,7 @@ moves["Magnezone"] = {"Flash Cannon", "Discharge", "Volt Switch", "Thunderbolt"}
 -- Bold Nature
 moves["Slowbro"] = {"Calm Mind", "Scald", "Psyshock", "Slack Off"}
 moves["Slowpoke"] = {"Calm Mind", "Scald", "Psyshock", "Slack Off"}
+
+moves["Horsea"] = {"BubbleBeam", "Outrage", "Dragon Pulse", "Dragon Dance", "Brine", "Hydro Pump"}
+moves["Seadra"] = {"BubbleBeam", "Outrage", "Dragon Pulse", "Dragon Dance", "Hydro Pump"}
+moves["Kingdra"] = {"Outrage", "Dragon Pulse", "Dragon Dance", "Hydro Pump"}

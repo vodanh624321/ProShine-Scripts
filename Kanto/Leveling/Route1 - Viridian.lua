@@ -1,33 +1,29 @@
-name = "Attack + Speed EV: Route 2 (near Viridian)"
-author = "Dung Le"
-description = [[This script will train the first pokémon of your team.
-It will only attack pokémon giving attack + speed EV.
-It will also try to capture shinies by throwing pokéballs.
-Start anywhere between Viridian City and Route 2.]]
+-- Copyright © 2016 Silv3r <silv3r@openmailbox.org>
+-- This work is free. You can redistribute it and/or modify it under the
+-- terms of the Do What The Fuck You Want To Public License, Version 2,
+-- as published by Sam Hocevar. See the LICENSE file for more details.
 
-dofile("../../Util.lua")
+name = "Leveling: Route 1 (near Viridian)"
+author = "Silv3r"
+description = [[This script will train the first pokémon of your team.
+It will also try to capture shinies by throwing pokéballs.
+Start anywhere between Viridian City and Route 1.]]
 
 function onPathAction()
-	if isPokemonUsable(1) ~= true and isPokemonUsable(2) then
-        return swapPokemon(1,2)
-    end
-    if isPokemonUsable(1) ~= true and isPokemonUsable(3) then
-        return swapPokemon(1,3)
-    end
-    if isPokemonUsable(1) ~= true and isPokemonUsable(4) then
-        return swapPokemon(1,4)
-    end
-
 	if isPokemonUsable(1) then
 		if getMapName() == "Pokecenter Viridian" then
 			moveToMap("Viridian City")
 		elseif getMapName() == "Viridian City" then
-			moveToMap("Route 2")
-		elseif getMapName() == "Route 2" then
-			moveToGrass()
+			moveToMap("Route 1 Stop House")
+		elseif getMapName() == "Route 1 Stop House" then
+			moveToMap("Route 1")
+		elseif getMapName() == "Route 1" then
+			moveToRectangle(7, 10, 21, 15)
 		end
 	else
-		if getMapName() == "Route 2" then
+		if getMapName() == "Route 1" then
+			moveToMap("Route 1 Stop House")
+		elseif getMapName() == "Route 1 Stop House" then
 			moveToMap("Viridian City")
 		elseif getMapName() == "Viridian City" then
 			moveToMap("Pokecenter Viridian")
@@ -43,9 +39,8 @@ function onBattleAction()
 			return
 		end
 	end
-	
 	if getActivePokemonNumber() == 1 then
-		return attack() or run() or sendUsablePokemon() or sendAnyPokemon()
+		return attack() or sendUsablePokemon() or run() or sendAnyPokemon()
 	else
 		return run() or attack() or sendUsablePokemon() or sendAnyPokemon()
 	end

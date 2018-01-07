@@ -1,5 +1,17 @@
-if hasMove(1, "Poison Sting") then
-    return forgetMove("Poison Sting")
+if hasMove(1, "Sweet Scent") then
+    return forgetMove("Sweet Scent")
+end
+
+if hasMove(1, "Focus Energy") then
+    return forgetMove("Focus Energy")
+end
+
+if hasMove(1, "Tail Whip") then
+    return forgetMove("Tail Whip")
+end
+
+if hasMove(1, "Play Nice") then
+    return forgetMove("Play Nice")
 end
 
 if hasMove(1, "Growl") then
@@ -14,20 +26,12 @@ if hasMove(1, "Harden") then
     return forgetMove("Harden")
 end
 
-if hasMove(1, "Bubblebeam") then
-    return forgetMove("Bubblebeam")
-end
-
-if hasMove(1, "Double Kick") then
-    return forgetMove("Double Kick")
-end
-
-if hasMove(1, "Peck") then
-    return forgetMove("Peck")
-end
-
 if hasMove(1, "Teleport") then
     return forgetMove("Teleport")
+end
+
+if hasMove(1, "Poison Sting") then
+    return forgetMove("Poison Sting")
 end
 
 if hasMove(1, "Seismic Toss") then
@@ -98,9 +102,18 @@ if hasMove(1, "Confusion") then
     return forgetMove("Confusion")
 end
 
-if hasMove(1, "Confusion") then
-    return forgetMove("Confusion")
+if hasMove(1, "Peck") then
+    return forgetMove("Peck")
 end
+
+if hasMove(1, "Bubblebeam") then
+    return forgetMove("Bubblebeam")
+end
+
+if hasMove(1, "Double Kick") then
+    return forgetMove("Double Kick")
+end
+
 -- gya
 if hasMove(1, "Hyro dump") then
     return forgetMove("Hydro Pump")

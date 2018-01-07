@@ -8,6 +8,19 @@ Start anywhere between Viridian City and Route 2.]]
 dofile("../../Util.lua")
 
 function onPathAction()
+	-- if isPokemonUsable(1) ~= true and isPokemonUsable(2) then
+ --        return swapPokemon(1,2)
+ --    end
+    -- if isPokemonUsable(1) ~= true and isPokemonUsable(3) then
+    --     return swapPokemon(1,3)
+    -- end
+    -- if isPokemonUsable(1) ~= true and isPokemonUsable(4) then
+    --     return swapPokemon(1,4)
+    -- end
+    -- if isPokemonUsable(1) ~= true and isPokemonUsable(5) then
+    --     return swapPokemon(1,5)
+    -- end
+
 	if isPokemonUsable(1) then
 		if getMapName() == "Pokecenter Viridian" then
 			moveToMap("Viridian City")
@@ -28,15 +41,25 @@ function onPathAction()
 end
 
 function onBattleAction()
+	--  or getOpponentName() == "Abra" or getOpponentName() == "Jigglypuff"
 	if isWildBattle() and isOpponentShiny() then
-		if useItem("Pokeball") or useItem("Ultra Ball") or useItem("Great Ball") then
+		if useItem("Ultra Ball") or useItem("Great Ball") or useItem("Pokeball") then
 			return
 		end
 	end
-	if getActivePokemonNumber() == 1 and isOpponentEffortValue("Attack") then
-		return attack() or run() or sendUsablePokemon() or sendAnyPokemon()
-	elseif getActivePokemonNumber() == 1 and isOpponentEffortValue("Speed") then
-		return attack() or run() or sendUsablePokemon() or sendAnyPokemon()
+	local isEventPkm = getOpponentForm() ~= 0
+	if isWildBattle() and isEventPkm then
+		if getOpponentHealthPercent() >= 40 then
+			return weakAttack() or attack() or sendUsablePokemon() or sendAnyPokemon() or run()
+		else
+			return useItem("Great Ball") or useItem("Pokeball")
+		end
+	end
+
+	if getActivePokemonNumber() >= 1 and (isOpponentEffortValue("Attack") 
+		-- or isOpponentEffortValue("Speed")
+		) then
+		return attack() or sendUsablePokemon() or run() or sendAnyPokemon()
 	else
 		return run() or attack() or sendUsablePokemon() or sendAnyPokemon()
 	end
